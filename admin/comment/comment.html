@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>评论模块</title>
+    <meta charset="UTF-8">
+    <title>评论模块</title>
+    <link rel="stylesheet" type="text/css" href="../assets/lib/layui/css/layui.css">
+    <script type="text/html" id="table-tpl">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>{{$value.uname}}</td>
+            <td>{{$value.content}}</td>
+            <td>{{$value.cdate | formatDate}}</td>
+            <td>
+                <!-- <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs edit">
+            编辑
+          </button> -->
+                <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">
+                    删除
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
 </head>
+
 <body>
-  
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>评论管理</span>
+        </div>
+        <div class="layui-card-body">
+            <!-- 文章列表的表格 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="15%">
+                    <col width="30%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>评论人</th>
+                        <th>评论内容</th>
+                        <th>评论时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 这里放数据 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../assets/lib/jquery.js"></script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+    <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+    <script type="text/javascript" src="../assets/lib/template-web.js"></script>
+    <script type="text/javascript" src="../assets/js/comment/comment.js"></script>
 </body>
+
 </html>
