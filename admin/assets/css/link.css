@@ -1,0 +1,16 @@
+.layui-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.icon-url img {
+  height: 30px;
+  margin-left: 30px;
+}
+
+.layui-table .bg {
+  background: #2d3237;
+  text-align: center;
+}
