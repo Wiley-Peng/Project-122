@@ -1,7 +1,7 @@
 //  两个模块。1、验证两次密码输入是否一样，2、给form表单注册submit事件
 
 var form = layui.form;
-var layer = layui / layer;
+var layer = layui.layer;
 // console.log(form);
 
 // 1、验证密码是否一样
@@ -25,7 +25,7 @@ $("form").on("submit", function(e) {
 
     // 提交数据
     $.ajax({
-        url: "/admin/users",
+        url: "admin/users",
         type: "post",
         data: params,
         success: function(res) {
