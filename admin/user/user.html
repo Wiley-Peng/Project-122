@@ -1,11 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>用户列表</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../assets/lib/layui/css/layui.css">
+    <script type="text/html" id="table-tpl">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>{{$value.username}}</td>
+            <td>{{$value.nickname}}</td>
+            <td>{{$value.email}}</td>
+            <td>
+                <button data-id="{{$value.Id}}" type="button" class="layui-btn layui-btn-xs ">
+                    <a style="color: #fff" target="iframeArea" href="./edit.html?id={{$value.id}}">编辑</a>
+                </button>
+                <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">删除</button>
+                <button data-id="{{$value.id}}" type="button" class="layui-btn layui-btn-xs layui-btn-normal delete">重置密码</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <script type="text/html" id="repwd-form-tpl">
+        <form id="repwd-form" class="layui-form" style="margin: 15px 30px 0 0">
+            <!-- 第一行：密码 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="password" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 第二行：确认密码 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-block">
+                    <input type="text" required lay-verify="required" placeholder="请重复输入新密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 第三行：按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
 </head>
+
 <body>
-  
+    <div class="layui-card">
+        <div class="layui-card-header">用户列表</div>
+        <div class="layui-card-body">
+            <!-- 文章列表的表格 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="20%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>账号名称</th>
+                        <th>昵称</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 这里放数据 -->
+                </tbody>
+            </table>
+            <!-- 分页效果填充位置 -->
+            <div id="articlePage"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../assets/lib/jquery.js"></script>
+    <script type="text/javascript" src="../assets/js/common.js"></script>
+    <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+    <script type="text/javascript" src="../assets/lib/template-web.js"></script>
+    <script type="text/javascript" src="../assets/js/user/user.js"></script>
 </body>
+
 </html>
